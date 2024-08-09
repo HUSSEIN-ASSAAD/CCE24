@@ -34,24 +34,24 @@ if(isset($_POST["username"], $_POST["email"], $_POST["pass"])) {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'hatech125@gmail.com'; // Your Gmail email address
-            $mail->Password = 'ycqcvtsoqtkgwktl'; // Your Gmail password
+            $mail->Username = ''; // Your Gmail email address
+            $mail->Password = ''; // Your Gmail password (you need to update your email setting to set a key for send email using php
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
 
             // Sender and recipient settings
-            $mail->setFrom('hatech125@gmail.com'); // Replace with your name
+            $mail->setFrom(''); // Replace with your name
             $mail->addAddress($email, $username);
 
             // Email content
             $mail->isHTML(true);
             $mail->Subject = 'Welcome to our website';
-            $mail->Body = "Dear $username,<br><br>Thank you for signing up friendery.";
+            $mail->Body = "Dear $username,<br><br>Thank you for signing up .";
 
             // Send email
             $mail->send();
             // Redirect to welcome page
-            header('location: welcome.php');
+            header('location: login.php');
         } catch (Exception $e) {
             // Handle email sending error
             echo "Failed to send email. Error: {$mail->ErrorInfo}";
